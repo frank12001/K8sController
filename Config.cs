@@ -11,7 +11,7 @@ namespace K8sController
         
         private Config()
         {
-            InCluster = DotNetEnv.Env.GetBool("InCluster");
+            InCluster = DotNetEnv.Env.GetBool("InCluster",true);
         }
 
         public Kubernetes GetCli()

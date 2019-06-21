@@ -24,10 +24,6 @@ namespace K8sController.Controllers
         {
             try
             {
-                if (ns == null || name == null)
-                {
-                    throw new MissingMemberException(ErrorMsg.Instance.Scale.M1);
-                }
                 var client = Config.Instance.GetCli();
                 var scale = await client.ReadNamespacedDeploymentScaleWithHttpMessagesAsync(name, ns);
                 if (scale.Body.Spec.Replicas == replicas)
